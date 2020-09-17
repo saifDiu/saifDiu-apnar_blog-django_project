@@ -1,0 +1,22 @@
+{% extends "blog/base.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+  <div class="content-section">
+    <form class=""  method="post">
+      {% csrf_token %}
+        <fieldset class="form-group">
+          <legend class="border-bottom mb-4">নিবন্ধন করুন</legend>
+          {{ form|crispy }}
+        </fieldset>
+        <div class="form-group">
+          <button class="btn btn-outline-info" type="submit" >নিবন্ধন</button>
+        </div>
+    </form>
+    <div class="border-top pt-3">
+      <small class="text-muted">
+        একাউন্ট আছে? <a class="ml-2" href="{% url 'login' %}">লগইন করুন</a>
+      </small>
+    </div>
+
+  </div>
+{% endblock content %}

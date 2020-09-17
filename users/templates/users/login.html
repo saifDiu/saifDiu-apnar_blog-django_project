@@ -1,0 +1,28 @@
+{% extends "blog/base.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+  <div class="content-section">
+    <form class=""  method="post">
+      {% csrf_token %}
+        <fieldset class="form-group">
+          <legend class="border-bottom mb-4">লগইন করুন</legend>
+          {{ form|crispy }}
+        </fieldset>
+        <div class="form-group">
+          <button class="btn btn-outline-info" type="submit" >লগইন</button>
+        </div>
+        <div class="border-top pt-3">
+          <small class="text-muted">
+            Forgot password? <a class="ml-2" href="{% url 'password-reset' %}">পাসওয়ার্ড পরিবর্তন করুন</a>
+          </small>
+        </div>
+
+    </form>
+    <div class="border-top pt-3">
+      <small class="text-muted">
+        একাউন্ট নেই? <a class="ml-2" href="{% url 'register' %}">নিবন্ধন করুন</a>
+      </small>
+    </div>
+
+  </div>
+{% endblock content %}
